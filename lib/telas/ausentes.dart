@@ -137,7 +137,7 @@ class _AusentesState extends State<Ausentes> {
                     spacing: 8,
                     runSpacing: 8,
                     children: faltantes.map((entry) {
-                      final int indexFigurinha = entry.key; // O índice original mantém o número correto!
+                      final int indexFigurinha = entry.key; 
                       final Figurinha fig = entry.value;
 
                       final larguraTela = MediaQuery.of(context).size.width;

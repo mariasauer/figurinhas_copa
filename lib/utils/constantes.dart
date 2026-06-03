@@ -26,22 +26,22 @@ Color getCorDoPais(String code) {
 
 /// Mapa com a correspondência entre códigos de país e ISO codes para bandeiras
 const Map<String, String> mapaDeBandeiras = {
-  'BRA': 'br', 'ARG': 'ar', 'URU': 'uy', 'COL': 'co',  
-  'ECU': 'ec', 'PAR': 'py', 'VEN': 've', 'BOL': 'bo',
+  'BRA': 'br', 'ARG': 'ar', 'URU': 'uy', 'COL': 'co', 'CHI': 'cl',
+  'PER': 'pe', 'ECU': 'ec', 'PAR': 'py', 'VEN': 've', 'BOL': 'bo',
   'GER': 'de', 'FRA': 'fr', 'ESP': 'es', 'ENG': 'gb-eng', 'POR': 'pt',
-  'NED': 'nl', 'BEL': 'be', 'CRO': 'hr', 'SUI': 'ch',
+  'ITA': 'it', 'NED': 'nl', 'BEL': 'be', 'CRO': 'hr', 'SUI': 'ch',
   'SRB': 'rs', 'DEN': 'dk', 'SWE': 'se', 'POL': 'pl', 'WAL': 'gb-wls',
   'SCO': 'gb-sct', 'IRL': 'ie', 'TUR': 'tr', 'GRE': 'gr', 'CZE': 'cz',
-  'AUT': 'at', 'HUN': 'hu', 'UKR': 'ua',
-  'NOR': 'no', 'BIH': 'ba', 'SVK': 'sk', 'SVN': 'si',
-  'USA': 'us', 'MEX': 'mx', 'CAN': 'ca', 'CUW': 'cw', 'PAN': 'pa',
+  'AUT': 'at', 'HUN': 'hu', 'ROU': 'ro', 'UKR': 'ua', 'ISL': 'is',
+  'NOR': 'no', 'FIN': 'fi', 'BIH': 'ba', 'SVK': 'sk', 'SVN': 'si',
+  'USA': 'us', 'MEX': 'mx', 'CAN': 'ca', 'CRC': 'cr', 'CUW': 'cw', 'PAN': 'pa',
   'HON': 'hn', 'SLV': 'sv', 'JAM': 'jm', 'TRI': 'tt', 'HAI': 'ht',
   'SEN': 'sn', 'CMR': 'cm', 'GHA': 'gh', 'MAR': 'ma', 'TUN': 'tn',
-  'CPV': 'cv', 'EGY': 'eg', 'ALG': 'dz', 'CIV': 'ci', 'RSA': 'za',
-  'MLI': 'ml', 'BFA': 'bf', 'COD': 'cd',
+  'NGA': 'ng', 'EGY': 'eg', 'ALG': 'dz', 'CIV': 'ci', 'RSA': 'za',
+  'MLI': 'ml', 'BFA': 'bf', 'COD': 'cd', 'CPV': 'cv',
   'JPN': 'jp', 'KOR': 'kr', 'AUS': 'au', 'KSA': 'sa', 'IRN': 'ir',
-  'QAT': 'qa', 'UAE': 'ae', 'JOR': 'jo', 'NZL': 'nz', 'IRQ': 'iq',
-  'OMA': 'om', 'SYR': 'sy', 'UZB': 'uz'
+  'QAT': 'qa', 'UAE': 'ae', 'CHN': 'cn', 'NZL': 'nz', 'IRQ': 'iq',
+  'OMA': 'om', 'SYR': 'sy', 'UZB': 'uz', 'IND': 'in', 'KAZ': 'kz', 'JOR': 'jo'
 };
 
 /// Retorna a URL da bandeira baseado no código do país
