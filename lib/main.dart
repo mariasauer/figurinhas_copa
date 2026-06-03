@@ -5,10 +5,9 @@ import 'telas/todas.dart';
 import 'services/database_helper.dart'; 
 
 void main() async {
-  // Como vamos ler banco antes de abrir a tela, precisa do 'async' no main
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Chama a função seed. Se já tiver dados, ela não faz nada.
+  // Chama a função seed. Se já tiver dados, ela não faz nada
   await DatabaseHelper.instance.popularBancoSeVazio(); 
   
   runApp(const MeuAlbumApp());
@@ -47,7 +46,6 @@ class _TelaNavegacaoState extends State<TelaNavegacao> {
     const Ausentes(),  
   ];
 
-  // muda a aba atual e manda a tela redesenhar
   void _aoMudarAba(int indice) {
     setState(() {
       _abaAtual = indice;

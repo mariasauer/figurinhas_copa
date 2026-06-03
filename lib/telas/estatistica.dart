@@ -58,7 +58,6 @@ class _EstatisticaState extends State<Estatistica> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    // --- MATEMÁTICA ---
     int total = _resumo['total'] ?? 0;
     int coladas = _resumo['coladas'] ?? 0;
     int faltantes = total - coladas; 
@@ -67,12 +66,10 @@ class _EstatisticaState extends State<Estatistica> {
     int shinyColadas = _resumo['shinyColadas'] ?? 0;
     int shinyFaltantes = totalShiny - shinyColadas; 
 
-    // A Matemática da Coca-Cola!
     int totalCoca = _resumo['totalCoca'] ?? 0;
     int cocaColadas = _resumo['cocaColadas'] ?? 0;
     int cocaFaltantes = totalCoca - cocaColadas; 
 
-    // Lógica das porcentagens
     double progressoGeralBruto = total > 0 ? coladas / total : 0;
     double progressoShinyBruto = totalShiny > 0 ? shinyColadas / totalShiny : 0;
     double progressoCocaBruto = totalCoca > 0 ? cocaColadas / totalCoca : 0;
@@ -102,7 +99,6 @@ class _EstatisticaState extends State<Estatistica> {
             ),
             const SizedBox(height: 24),
 
-            // --- CARTÃO 1: ÁLBUM GERAL ---
             Card(
               elevation: 0,
               color: Colors.white,
@@ -167,7 +163,6 @@ class _EstatisticaState extends State<Estatistica> {
 
             const SizedBox(height: 20),
 
-            // --- CARTÃO 2: SHINYS ---
             Card(
               elevation: 0,
               color: Colors.white,
@@ -232,8 +227,6 @@ class _EstatisticaState extends State<Estatistica> {
 
             const SizedBox(height: 20),
 
-            // --- CARTÃO 3: COCA-COLA ---
-            // Só desenha o cartão se realmente existir figurinhas da Coca no banco!
             if (totalCoca > 0)
               Card(
                 elevation: 0,
@@ -297,7 +290,6 @@ class _EstatisticaState extends State<Estatistica> {
                 ),
               ),
             
-            // Um espacinho extra no final para não grudar na barra de baixo
             const SizedBox(height: 40),
           ],
         ),

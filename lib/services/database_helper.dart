@@ -73,7 +73,6 @@ class DatabaseHelper {
     };
   }
 
-// --- FUNÇÃO DE SEED (SEMENTE) ---
   Future<void> popularBancoSeVazio() async {
     final db = await instance.database;
     
@@ -81,16 +80,13 @@ class DatabaseHelper {
     final count = Sqflite.firstIntValue(await db.rawQuery('SELECT COUNT(*) FROM figurinhas'));
 
     if (count == 0) {
-      // 1. Carrega o arquivo JSON da pasta assets
       String jsonString = await rootBundle.loadString('assets/figurinhas.json');
       
-      // 2. Decodifica o texto como um Mapa (Dicionário), pois o JSON começa com {
       Map<String, dynamic> jsonCompleto = jsonDecode(jsonString);
 
-      // 3. Extrai apenas a lista que está dentro da chave "stickers"
       List<dynamic> jsonList = jsonCompleto['stickers'];
 
-      // 4. Usamos um 'batch' (lote) para inserir todas as centenas de figurinhas de uma vez só
+      // inserir todas as figurinhas de uma vez
       Batch batch = db.batch();
       
       for (var item in jsonList) {
@@ -98,27 +94,22 @@ class DatabaseHelper {
            'name': item['name'] ?? 'Jogador',
            'type': item['type'] ?? 'normal',           
            'code': item['code'] ?? '0',
-           'colada': 0 // Ninguém nasce colado!
+           'colada': 0
          });
       }
       
-      // Executa o lote inteiro no banco
       await batch.commit();
     }
   }
-  // --- FUNÇÃO PARA O PAINEL DE ESTATÍSTICAS ---
 Future<Map<String, int>> obterResumoColecao() async {
     Database db = await instance.database;
 
-    // Contagens Gerais
     int total = Sqflite.firstIntValue(await db.rawQuery('SELECT COUNT(*) FROM figurinhas')) ?? 0;
     int coladas = Sqflite.firstIntValue(await db.rawQuery('SELECT COUNT(*) FROM figurinhas WHERE colada = 1')) ?? 0;
 
-    // Contagens Shiny
     int totalShiny = Sqflite.firstIntValue(await db.rawQuery("SELECT COUNT(*) FROM figurinhas WHERE LOWER(type) = 'shiny'")) ?? 0;
     int shinyColadas = Sqflite.firstIntValue(await db.rawQuery("SELECT COUNT(*) FROM figurinhas WHERE LOWER(type) = 'shiny' AND colada = 1")) ?? 0;
 
-    // --- NOVA CONTAGEM COCA-COLA ---
     int totalCoca = Sqflite.firstIntValue(await db.rawQuery("SELECT COUNT(*) FROM figurinhas WHERE LOWER(type) = 'coca'")) ?? 0;
     int cocaColadas = Sqflite.firstIntValue(await db.rawQuery("SELECT COUNT(*) FROM figurinhas WHERE LOWER(type) = 'coca' AND colada = 1")) ?? 0;
 
@@ -127,8 +118,8 @@ Future<Map<String, int>> obterResumoColecao() async {
       'coladas': coladas,
       'totalShiny': totalShiny,
       'shinyColadas': shinyColadas,
-      'totalCoca': totalCoca,   // Enviando a Coca para a tela!
-      'cocaColadas': cocaColadas, // Enviando a Coca para a tela!
+      'totalCoca': totalCoca,   
+      'cocaColadas': cocaColadas, 
     };
   }
 }

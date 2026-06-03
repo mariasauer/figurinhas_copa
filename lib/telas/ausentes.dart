@@ -27,15 +27,14 @@ class _AusentesState extends State<Ausentes> {
     });
   }
 
-  // Quando você clicar na figurinha aqui, ela será marcada como colada
-  // e vai sumir desta lista automaticamente!
+
   Future<void> _alternarStatusColada(Figurinha figurinha) async {
     final figurinhaAtualizada = Figurinha(
       id: figurinha.id,
       code: figurinha.code,
       name: figurinha.name,
       type: figurinha.type,
-      colada: true, // Força a ser true, pois se está aqui é porque faltava
+      colada: true, 
     );
 
     await DatabaseHelper.instance.atualizar(figurinhaAtualizada);
@@ -97,10 +96,8 @@ class _AusentesState extends State<Ausentes> {
           final code = chavesDosGrupos[index];
           final figurinhasDoPais = grupos[code]!;
           
-          // O GRANDE TRUQUE: Pegamos a lista com os índices originais, mas filtramos só as que NÃO estão coladas
           final faltantes = figurinhasDoPais.asMap().entries.where((entry) => !entry.value.colada).toList();
 
-          // Se você já colou todas desse país, a lista de faltantes fica vazia, então nós nem desenhamos o país na tela!
           if (faltantes.isEmpty) {
             return const SizedBox.shrink(); 
           }
@@ -117,7 +114,6 @@ class _AusentesState extends State<Ausentes> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // TÍTULO FIXO (SEM SANFONA)
                   Row(
                     children: [
                       if (urlBandeira != null) ...[
@@ -137,7 +133,6 @@ class _AusentesState extends State<Ausentes> {
                   ),
                   const SizedBox(height: 16),
                   
-                  // OS QUADRADINHOS
                   Wrap(
                     spacing: 8,
                     runSpacing: 8,
