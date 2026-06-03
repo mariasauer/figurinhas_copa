@@ -1,17 +1,21 @@
-# figurinhas_copa
+# Figurinhas Copa
 
-A new Flutter project.
+Projeto para gerenciar um álbum de figurinhas da Copa do Mundo.
 
-## Getting Started
+## Sobre
 
-This project is a starting point for a Flutter application.
+Este repositório contém um sistema simples para organizar e visualizar figurinhas de um álbum da Copa. Pode ser usado como base para aplicações de cadastro, coleções ou jogos relacionados a figurinhas.
 
-A few resources to get you started if this is your first Flutter project:
+## Funcionalidades
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Visualização da coleção
+- Organização por país e categoria
+- Controle de figurinhas faltantes 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Tecnologias
+
+- Flutter / Dart: Linguagem e framework principais do projeto para construção da interface mobile.
+
+- SQLite (sqflite): Banco de dados relacional embutido para salvar o progresso localmente.
+
