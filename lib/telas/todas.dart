@@ -271,7 +271,7 @@ class _TodasState extends State<Todas> {
                                     ],
                                     if (isCoca) ...[
                                       Icon(
-                                        Icons.local_drink_rounded, // Ícone de bebida para a Coca!
+                                        Icons.local_drink_rounded, 
                                         size: 14, 
                                         color: fig.colada ? Colors.white : Colors.red[600]
                                       ),
@@ -293,11 +293,12 @@ class _TodasState extends State<Todas> {
                                   child: Text(
                                     fig.name,
                                     textAlign: TextAlign.center,
-                                    maxLines: 1,
+                                    maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       fontSize: 9,
                                       color: corSubtexto,
+                                      height: 1.1,
                                     ),
                                   ),
                                 ),
