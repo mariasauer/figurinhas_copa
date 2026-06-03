@@ -309,7 +309,11 @@ class _TodasState extends State<Todas> {
                               
                               String numeroVisual = fig.code.replaceAll(RegExp(r'[A-Za-z]'), '').padLeft(2, '0');
                               if (numeroVisual.isEmpty) {
-                                numeroVisual = (indexFigurinha + 1).toString().padLeft(2, '0');
+                                numeroVisual = code == 'FWC' 
+                                    ? indexFigurinha.toString().padLeft(2, '0') 
+                                    : (indexFigurinha + 1).toString().padLeft(2, '0');
+                              } else {
+                                numeroVisual = numeroVisual.padLeft(2, '0');
                               }
 
                               bool isShiny = fig.type.toLowerCase() == 'shiny';

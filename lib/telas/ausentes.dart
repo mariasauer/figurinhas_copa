@@ -145,6 +145,13 @@ class _AusentesState extends State<Ausentes> {
                       final larguraCaixa = (larguraTela - 32 - 32 - (8 * 3)) / 4; 
                       
                       String numeroVisual = (indexFigurinha + 1).toString().padLeft(2, '0');
+                      if (numeroVisual.isEmpty) {
+                        numeroVisual = code == 'FWC' 
+                            ? indexFigurinha.toString().padLeft(2, '0') 
+                            : (indexFigurinha + 1).toString().padLeft(2, '0');
+                      } else {
+                        numeroVisual = numeroVisual.padLeft(2, '0');
+                      }
                       bool isShiny = fig.type.toLowerCase() == 'shiny';
 
                       return SizedBox(
