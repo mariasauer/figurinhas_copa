@@ -141,7 +141,6 @@ class _AusentesState extends State<Ausentes> {
                       final Figurinha fig = entry.value;
 
                       final larguraTela = MediaQuery.of(context).size.width;
-                      // Desconta paddings do cartão e margens (um pouco diferente da tela anterior)
                       final larguraCaixa = (larguraTela - 32 - 32 - (8 * 3)) / 4; 
                       
                       String numeroVisual = (indexFigurinha + 1).toString().padLeft(2, '0');
