@@ -143,7 +143,7 @@ class _AusentesState extends State<Ausentes> {
                       final larguraTela = MediaQuery.of(context).size.width;
                       final larguraCaixa = (larguraTela - 32 - 32 - (8 * 3)) / 4; 
                       
-                      String numeroVisual = (indexFigurinha + 1).toString().padLeft(2, '0');
+                     String numeroVisual = fig.code.replaceAll(RegExp(r'[^0-9]'), '');
                       if (numeroVisual.isEmpty) {
                         numeroVisual = code == 'FWC' 
                             ? indexFigurinha.toString().padLeft(2, '0') 
